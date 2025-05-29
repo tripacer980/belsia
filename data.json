@@ -1,0 +1,45 @@
+[
+  {
+    "id": "ancetre",
+    "nom": "Jean Dupont",
+    "naissance": "1900-05-15",
+    "enfants": [
+      {
+        "id": "parent1",
+        "nom": "Marie Dupont",
+        "naissance": "1930-08-20",
+        "enfants": [
+          {
+            "id": "enfant1_1",
+            "nom": "Pierre Martin",
+            "naissance": "1960-03-10"
+          },
+          {
+            "id": "enfant1_2",
+            "nom": "Sophie Martin",
+            "naissance": "1965-11-25",
+            "enfants": [
+              {
+                "id": "petit_enfant1_2_1",
+                "nom": "Luc Bernard",
+                "naissance": "1990-07-01"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "parent2",
+        "nom": "Paul Dupont",
+        "naissance": "1935-01-05",
+        "enfants": [
+          {
+            "id": "enfant2_1",
+            "nom": "Julie Leclerc",
+            "naissance": "1970-09-12"
+          }
+        ]
+      }
+    ]
+  }
+]
