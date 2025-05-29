@@ -1,0 +1,150 @@
+[
+  {
+    "id": "ancetre_couple_1",
+    "type": "couple",
+    "epoux": {
+      "id": "ancetre_homme",
+      "nom": "Jean Dupont",
+      "naissance": "1900-05-15",
+      "deces": "1980-01-20",
+      "photo": "photos/jean_dupont.jpg",
+      "description": "Fondateur de la lignée, charpentier de métier."
+    },
+    "epouse": {
+      "id": "ancetre_femme",
+      "nom": "Marie Dubois",
+      "naissance": "1905-03-10",
+      "deces": "1985-07-05",
+      "photo": "photos/marie_dubois.jpg",
+      "description": "Couturière et mère de famille nombreuse."
+    },
+    "enfants": [
+      {
+        "id": "parent_couple_1",
+        "type": "couple",
+        "epoux": {
+          "id": "parent1_homme",
+          "nom": "Pierre Dupont",
+          "naissance": "1930-08-20",
+          "deces": "2005-11-12",
+          "photo": "photos/pierre_dupont.jpg",
+          "description": "Ingénieur, passionné d'histoire locale."
+        },
+        "epouse": {
+          "id": "parent1_femme",
+          "nom": "Sophie Leroux",
+          "naissance": "1932-04-01",
+          "deces": "2018-09-30",
+          "photo": "photos/sophie_leroux.jpg",
+          "description": "Professeure de musique, grande voyageuse."
+        },
+        "enfants": [
+          {
+            "id": "enfant_couple_1_1",
+            "type": "couple",
+            "epoux": {
+              "id": "enfant1_1_homme",
+              "nom": "Marc Dupont",
+              "naissance": "1960-03-10",
+              "deces": null,
+              "photo": "photos/marc_dupont.jpg",
+              "description": "Architecte, vit à Bordeaux."
+            },
+            "epouse": {
+              "id": "enfant1_1_femme",
+              "nom": "Laura Bernard",
+              "naissance": "1962-09-18",
+              "deces": null,
+              "photo": "photos/laura_bernard.jpg",
+              "description": "Pédiatre, aime la randonnée."
+            },
+            "enfants": [
+              {
+                "id": "petit_enfant_1_1_1",
+                "type": "personne",
+                "nom": "Hugo Dupont",
+                "naissance": "1990-07-01",
+                "deces": null,
+                "photo": "photos/hugo_dupont.jpg",
+                "description": "Développeur web, passionné de jeux vidéo."
+              }
+            ]
+          },
+          {
+            "id": "enfant_couple_1_2",
+            "type": "couple",
+            "epoux": {
+              "id": "enfant1_2_homme",
+              "nom": "Nathalie Dupont",
+              "naissance": "1965-11-25",
+              "deces": null,
+              "photo": "photos/nathalie_dupont.jpg",
+              "description": "Artiste peintre, a exposé à Paris."
+            },
+            "epouse": {
+              "id": "enfant1_2_femme",
+              "nom": "David Leclerc",
+              "naissance": "1963-02-14",
+              "deces": null,
+              "photo": "photos/david_leclerc.jpg",
+              "description": "Musicien, joue du piano jazz."
+            },
+            "enfants": [
+              {
+                "id": "petit_enfant_1_2_1",
+                "type": "personne",
+                "nom": "Clara Leclerc",
+                "naissance": "1995-04-22",
+                "deces": null,
+                "photo": "photos/clara_leclerc.jpg",
+                "description": "Étudiante en médecine, bénévole humanitaire."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "parent_couple_2",
+        "type": "couple",
+        "epoux": {
+          "id": "parent2_homme",
+          "nom": "Robert Dupont",
+          "naissance": "1935-01-05",
+          "deces": "2010-06-08",
+          "photo": "photos/robert_dupont.jpg",
+          "description": "Agriculteur, aimait la vie simple."
+        },
+        "epouse": {
+          "id": "parent2_femme",
+          "nom": "Évelyne Giraud",
+          "naissance": "1938-12-03",
+          "deces": "2020-02-15",
+          "photo": "photos/evelyne_giraud.jpg",
+          "description": "Jardinière passionnée, connaissait toutes les plantes."
+        },
+        "enfants": [
+          {
+            "id": "enfant_couple_2_1",
+            "type": "couple",
+            "epoux": {
+              "id": "enfant2_1_homme",
+              "nom": "Thomas Dupont",
+              "naissance": "1970-09-12",
+              "deces": null,
+              "photo": "photos/thomas_dupont.jpg",
+              "description": "Chef cuisinier, gère son propre restaurant."
+            },
+            "epouse": {
+              "id": "enfant2_1_femme",
+              "nom": "Emma Rousseau",
+              "naissance": "1972-06-28",
+              "deces": null,
+              "photo": "photos/emma_rousseau.jpg",
+              "description": "Architecte d'intérieur, très créative."
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

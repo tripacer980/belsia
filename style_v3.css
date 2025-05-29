@@ -1,0 +1,209 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100vh; /* Full viewport height */
+    overflow-x: auto; /* Allow horizontal scroll for wide trees */
+}
+
+.arbre-genealogique {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    min-width: fit-content; /* Ensure the tree doesn't shrink */
+}
+
+/* Styles pour chaque génération */
+.generation {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Espace entre les couples/personnes d'une même génération */
+    margin-bottom: 80px; /* Espace vertical entre les générations */
+    position: relative;
+    padding-top: 40px; /* Espace pour les lignes de connexion des enfants */
+}
+
+/* Première génération n'a pas de padding-top */
+.arbre-genealogique > .generation:first-child {
+    padding-top: 0;
+    margin-bottom: 40px; /* Ajustement pour la première génération */
+}
+
+/* Conteneur de la boîte de personne/couple */
+.personne-boite {
+    border: 1px solid #a0c4ff;
+    background-color: #e0efff;
+    padding: 15px; /* Plus de padding pour le contenu */
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex; /* Utilise flexbox pour le contenu interne */
+    flex-direction: row; /* Les époux côte à côte par défaut */
+    justify-content: center;
+    align-items: flex-start; /* Alignement du contenu */
+    gap: 15px; /* Espacement entre époux/épouse */
+    min-width: 300px; /* Largeur minimale pour un couple */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si pas assez d'espace */
+}
+
+.personne-boite:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Style spécifique pour le couple racine */
+.arbre-genealogique > .generation:first-child .personne-boite {
+    background-color: #c4d7ff;
+    border-color: #7a9aff;
+}
+
+/* Style pour la boîte d'une personne unique (dernière génération ou célibataire) */
+.personne-unique-boite {
+    flex-direction: column; /* La personne unique est un simple bloc vertical */
+    min-width: 150px; /* Largeur pour une personne seule */
+    max-width: 200px; /* Empêche le texte de s'étaler trop */
+}
+
+/* Conteneurs pour époux et épouse à l'intérieur d'une couple-boite */
+.epoux, .epouse, .info-personne-unique {
+    flex: 1; /* Prend l'espace disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 130px; /* Largeur minimale pour chaque membre du couple */
+}
+
+/* Photo de la personne */
+.personne-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Cercle */
+    object-fit: cover; /* Recadre l'image pour remplir le cercle */
+    border: 2px solid #6a9cff;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Nom de la personne */
+.personne-nom {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #0056b3;
+    margin-bottom: 3px;
+}
+
+/* Dates de naissance/décès */
+.personne-dates {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Description de la personne */
+.personne-description {
+    font-size: 0.75em;
+    color: #777;
+    margin-top: 5px;
+    /* max-height: 4.5em; */ /* Limite la hauteur de la description */
+    /* overflow: hidden; */ /* Cache le texte en trop */
+    /* text-overflow: ellipsis; */ /* Ajoute "..." si le texte est coupé */
+}
+
+/* Liens des personnes */
+.lien-personne {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- CONNECTEUR LINES (NOUVELLE APPROCHE) --- */
+
+/* Conteneur des enfants, pour faciliter le positionnement des lignes */
+.enfants-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* Espace entre les couples/personnes d'une même génération enfant */
+    position: relative;
+    margin-top: 40px; /* Espace pour la ligne verticale des parents */
+    flex-wrap: wrap; /* Permet aux enfants de passer à la ligne si l'écran est trop petit */
+}
+
+/* Ligne verticale descendant du parent (couple ou personne) */
+.personne-boite > .connecteur-vertical-parent {
+    position: absolute;
+    left: 50%;
+    bottom: -40px; /* Sort de la boîte du parent */
+    width: 2px;
+    height: 40px; /* Longueur jusqu'à la ligne horizontale des enfants */
+    background-color: #6a9cff;
+    transform: translateX(-50%);
+    z-index: 1; /* Au-dessus des autres éléments */
+}
+
+/* Ligne horizontale reliant les enfants d'un même parent */
+.enfants-container > .connecteur-horizontal-enfants {
+    position: absolute;
+    top: 0; /* Au début du conteneur des enfants */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #6a9cff;
+    z-index: 1;
+    /* Calculer la largeur exacte et le positionnement est complexe en CSS pur
+       pour s'adapter à un nombre variable d'enfants.
+       Ceci est une estimation ou peut nécessiter un ajustement dynamique via JS. */
+}
+
+/* Lignes verticales remontant vers la ligne horizontale des enfants */
+.generation:not(:first-child) > .personne-boite {
+    /* Style de base pour les boîtes des enfants */
+}
+
+/* Ligne verticale qui monte du haut de chaque boîte d'enfant vers la ligne horizontale du parent */
+.generation:not(:first-child) > .personne-boite::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -40px; /* Remonte jusqu'à la ligne horizontale des parents */
+    width: 2px;
+    height: 40px;
+    background-color: #6a9cff;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Masquer les connecteurs pour la dernière génération */
+.generation:last-child .personne-boite > .connecteur-vertical-parent {
+    display: none;
+}
+.generation:last-child .enfants-container > .connecteur-horizontal-enfants {
+    display: none;
+}
+.generation:last-child .personne-boite::before {
+    display: none;
+}
+
+
+/* Ancrages pour les liens, invisibles mais importants pour le scroll */
+.ancrage {
+    position: absolute;
+    top: -100px; /* Assure un défilement un peu au-dessus de la boîte */
+    visibility: hidden; /* Rend l'ancrage lui-même invisible */
+}
