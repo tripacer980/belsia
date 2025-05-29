@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function chargerDonneesArbre() {
         try {
             // Assurez-vous que cette URL est correcte si vous utilisez GitHub Pages
-            const response = await fetch('data.json');
+            const response = await fetch('data2.json');
             if (!response.ok) {
                 throw new Error(`Erreur de chargement des données : ${response.statusText}`);
             }
