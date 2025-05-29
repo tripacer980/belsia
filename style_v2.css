@@ -1,0 +1,97 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Light grey background */
+    color: #333; /* Dark grey text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100vh; /* Full viewport height */
+}
+
+.arbre-genealogique {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; /* More padding top/bottom */
+    background-color: #ffffff; /* White background for the tree area */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-top: 30px; /* Space from top of page */
+}
+
+.generation {
+    display: flex;
+    justify-content: center; /* Center persons in each generation */
+    gap: 60px; /* Increased gap between persons */
+    margin-bottom: 80px; /* Increased margin between generations */
+    position: relative; /* For connector lines positioning */
+}
+
+/* Style for each person's box */
+.personne-boite {
+    border: 1px solid #a0c4ff; /* Lighter blue border */
+    background-color: #e0efff; /* Light blue background */
+    padding: 12px 25px; /* More padding */
+    text-align: center;
+    border-radius: 8px; /* Slightly more rounded corners */
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+    min-width: 150px; /* Ensure boxes have a minimum width */
+    display: flex; /* Use flex for internal content alignment */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.personne-boite:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Specific style for the root person */
+.arbre-genealogique > .generation:first-child .personne-boite {
+    background-color: #c4d7ff; /* Slightly darker blue for the root */
+    border-color: #7a9aff;
+}
+
+
+/* Info text inside the box */
+.personne-info {
+    margin: 2px 0; /* Reduced margin for tighter info */
+    font-size: 0.9em; /* Slightly smaller font for info */
+}
+
+.personne-info:first-child {
+    font-weight: bold; /* Bold the name */
+    font-size: 1.1em; /* Slightly larger font for name */
+    margin-bottom: 5px;
+    color: #0056b3; /* Darker blue for name */
+}
+
+/* Link styling */
+.lien-personne {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Inherit text color from parent */
+    display: block;
+    width: 100%; /* Make the link fill the box */
+    height: 100%;
+}
+
+/*
+   CONNECTOR LINES
+   These lines connect parents to children.
+   They are drawn using pseudo-elements and clever positioning.
+*/
+
+/* Vertical line coming out of a person */
+.personne-boite::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -40px; /* Extend line further down */
+    width: 2px;
+    height: 40px
