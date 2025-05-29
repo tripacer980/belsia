@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbre Généalogique</title>
+    <style>
+        /* Styles CSS directement dans le fichier HTML pour la simplicité */
+        .arbre-genealogique {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .generation {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .personne-boite {
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .personne-boite::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            width: 2px;
+            height: 20px;
+            background-color: #ccc;
+            transform: translateX(-50%);
+        }
+
+        .generation:last-child .personne-boite::after {
+            display: none;
+        }
+
+        .personne-info {
+            margin-bottom: 5px;
+        }
+
+        .lien-personne {
+            text-decoration: none;
+            color: black;
+            display: block; /* Important pour que le lien prenne toute la surface cliquable */
+        }
+
+        .connecteur-parent {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background-color: #ccc;
+            transform: translateY(-50%);
+        }
+
+        .connecteur-enfant {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background-color: #ccc;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="arbre-genealogique">
+        <div id="arbreContainer">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
